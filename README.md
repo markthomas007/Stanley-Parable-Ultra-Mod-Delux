@@ -1,4 +1,4 @@
-# Stanley Parable Ultra Mod Delux
+# Stanley Parable Ultra Mod Deluxe
 
 This is a mod for The Stanley Parable: Ultra Deluxe game.
 It adds keybinds that do different things in the game and even allows you to change the scene you are in.
@@ -14,10 +14,11 @@ Its been fun making this and i hope you have fun messing around with the game.
 - Enable Jumping
 - Scene switcher to allow you to go to different parts of the game
 
-## Planned Features
-- Noclip
-- Better Level Selector
-- Keybind to Lock/Unlock Cursor
+## TODO
+- Fix spelling mistakes ive made while working on this mod at 3am
+- Add Noclip
+- Make a Better Level Selector
+- Add a Keybind to Lock/Unlock Cursor
 
 ## Installation
 To install this mod, you will need to install [MelonLoader](https://melonwiki.xyz/) (website link, see Getting Started).  
