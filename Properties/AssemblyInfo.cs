@@ -6,11 +6,11 @@ using MelonLoader;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StanleyParableUltraModDelux")]
+[assembly: AssemblyTitle("StanleyParableUltraModDeluxe")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StanleyParableUltraModDelux")]
+[assembly: AssemblyProduct("StanleyParableUltraModDeluxe")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -36,5 +36,5 @@ using MelonLoader;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: MelonInfo(typeof(StanleyParableUltraModDelux.TheMod), "The Stanley Parable Ultra Mod Delux", "1.0.0", "markthomas007")]
+[assembly: MelonInfo(typeof(StanleyParableUltraModDeluxe.TheMod), "The Stanley Parable Ultra Mod Deluxe", "1.0.1", "markthomas007")]
 [assembly: MelonGame("Crows Crows Crows", "The Stanley Parable: Ultra Deluxe")]

@@ -10,7 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace StanleyParableUltraModDelux
+namespace StanleyParableUltraModDeluxe
 {
     public class TheMod : MelonMod
     {
@@ -40,10 +40,10 @@ namespace StanleyParableUltraModDelux
             GUI.Label(new Rect(20, 160, 250, 20), "T - Unlock All Door in scene");
             GUI.Label(new Rect(20, 180, 250, 20), "L - Enable Jumping");
             GUI.Label(new Rect(20, 200, 250, 20), "P - Achievement Giver");
-            GUI.Label(new Rect(20, 220, 250, 20), "O - Show hidden Acheivemet menu");
+            GUI.Label(new Rect(20, 220, 250, 20), "O - Show hidden Achievemet menu");
 
 
-            if (GUI.Button(new Rect(20, 70, 150, 20), "Load Selected Level"))
+            if (GUI.Button(new Rect(20, 70, 150, 20), "Load Selected Scene"))
             {
                 try
                 {
@@ -52,11 +52,11 @@ namespace StanleyParableUltraModDelux
                 }
                 catch (Exception exc)
                 {
-                    //For when people fuck up
+                    //For when people screw up
                 }
             }
 
-            /*
+            /* currently unused
             if (GUI.Button(new Rect(20, 120, 150, 20), "Level 2"))
             {
 
@@ -97,6 +97,7 @@ namespace StanleyParableUltraModDelux
             {
                 int sceneCount = SceneManager.sceneCountInBuildSettings;
                 LoggerInstance.Msg("Scene Count: " + sceneCount);
+                //LoggerInstance.Msg("Scene was loaded. Name: " + S + " int: " + buildIndex);
             }
         }
 
@@ -105,7 +106,7 @@ namespace StanleyParableUltraModDelux
             PlatformAchievements.UnlockAchievement(this.achievementToUnlock);
             PlatformAchievements.UnlockAchievement(this.achievementToUnlock1);
             PlatformAchievements.UnlockAchievement(this.achievementToUnlock2);
-            LoggerInstance.Msg("Acheivement Giver");
+            LoggerInstance.Msg("Achievements Given");
         }
 
         public void JumpingThing()
