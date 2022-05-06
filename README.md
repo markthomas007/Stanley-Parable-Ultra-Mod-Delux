@@ -7,11 +7,12 @@ This was made so i could mess with the game and to see how they made this game i
 Its been fun making this and i hope you have fun messing around with the game.
 
 ## Features
-- Achievment unlocker (Does not give you the Super Go Outside Achievement)
+- Achievment unlocker (Does not give you the Super Go Outside Achievement or some of the easier ones)
 - Unlock all doors
 - Show hidden Achievment UI
 - Give you info about what scene you are currently in
 - Enable Jumping
+- Scene switcher to allow you to go to different parts of the game
 
 ## Planned Features
 - Noclip
