@@ -49,6 +49,9 @@ namespace StanleyParableUltraModDeluxe
                 {
                     int temp = int.Parse(TextArea);
                     SceneManager.LoadScene(temp);
+                    
+                    //For later use
+                    //StanleyController.Instance.UnfreezeMotionAndView();
                 }
                 catch (Exception exc)
                 {
@@ -119,7 +122,6 @@ namespace StanleyParableUltraModDeluxe
                 }
             }
 
-            //StanleyController.Instance.UnfreezeMotionAndView();
             LoggerInstance.Msg("JumpingEnabled");
         }
 
