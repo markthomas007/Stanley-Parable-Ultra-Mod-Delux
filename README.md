@@ -13,12 +13,13 @@ Its been fun making this and i hope you have fun messing around with the game.
 - Give you info about what scene you are currently in
 - Enable Jumping
 - Scene switcher to allow you to go to different parts of the game
+- Lock/Unlock Cursor
 
 ## TODO
-- Fix spelling mistakes ive made while working on this mod at 3am
 - Add Noclip
 - Make a Better Level Selector
-- Add a Keybind to Lock/Unlock Cursor
+- ~~Fix spelling mistakes ive made while working on this mod at 3am~~
+- ~~Add a Keybind to Lock/Unlock Cursor~~
 
 ## Installation
 To install this mod, you will need to install [MelonLoader](https://melonwiki.xyz/) (website link, see Getting Started).  

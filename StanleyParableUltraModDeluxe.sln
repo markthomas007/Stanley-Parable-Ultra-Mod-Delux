@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StanleyParableUltraModDelux", "StanleyParableUltraModDelux.csproj", "{373A3165-FBC5-4983-9D5C-6D99B9F07217}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StanleyParableUltraModDeluxe", "StanleyParableUltraModDeluxe.csproj", "{373A3165-FBC5-4983-9D5C-6D99B9F07217}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,16 +15,21 @@ namespace StanleyParableUltraModDeluxe
     public class TheMod : MelonMod
     {
 
+        bool menuShown = true;
+
         public AchievementID achievementToUnlock = AchievementID.Tuesday;
         public AchievementID achievementToUnlock1 = AchievementID.SpeedRun;
         public AchievementID achievementToUnlock2 = AchievementID.SettingsWorldChampion;
 
-        private Rect windoPosition = new Rect(20, 20, 500, 300);
+        private Rect windoPosition = new Rect(20, 20, 500, 320);
         private string TextArea = "";
-
+        
         public override void OnGUI()
         {
-            windoPosition = GUI.Window(0, windoPosition, WindowFunction, "The Stanley Parable Ultra Mod Delux Menu");
+            if (menuShown == true)
+            {
+                windoPosition = GUI.Window(0, windoPosition, WindowFunction, "The Stanley Parable Ultra Mod Delux Menu");
+            }
         }
 
         private void WindowFunction(int id)
@@ -36,11 +41,13 @@ namespace StanleyParableUltraModDeluxe
             GUI.Label(new Rect(20, 30, 350, 50), "Current number of scene(s): " + SceneManager.sceneCountInBuildSettings.ToString());
 
             GUI.Label(new Rect(20, 120, 250, 20), "Keybinds: ");
-            GUI.Label(new Rect(20, 140, 250, 20), "K - Get current scene info to Melon Consol");
+            GUI.Label(new Rect(20, 140, 250, 20), "K - Get current scene info to Melon Console");
             GUI.Label(new Rect(20, 160, 250, 20), "T - Unlock All Door in scene");
             GUI.Label(new Rect(20, 180, 250, 20), "L - Enable Jumping");
             GUI.Label(new Rect(20, 200, 250, 20), "P - Achievement Giver");
             GUI.Label(new Rect(20, 220, 250, 20), "O - Show hidden Achievemet menu");
+            GUI.Label(new Rect(20, 240, 250, 20), "I - Toggle Menu");
+            GUI.Label(new Rect(20, 260, 250, 20), "LeftAlt - Toggle Cursor Lock");
 
 
             if (GUI.Button(new Rect(20, 70, 150, 20), "Load Selected Scene"))
@@ -96,12 +103,36 @@ namespace StanleyParableUltraModDeluxe
                 ShowAcheivementMenu();
             }
 
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                ToggleMenu();
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftAlt))
+            {
+                if (Cursor.visible == false)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.K))
             {
                 int sceneCount = SceneManager.sceneCountInBuildSettings;
                 LoggerInstance.Msg("Scene Count: " + sceneCount);
                 //LoggerInstance.Msg("Scene was loaded. Name: " + S + " int: " + buildIndex);
             }
+        }
+
+        public void ToggleMenu()
+        {
+            menuShown = !menuShown;
         }
 
         public void AcheivementThing()
