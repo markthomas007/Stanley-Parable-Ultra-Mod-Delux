@@ -9,6 +9,7 @@ using MelonLoader;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Reflection;
 
 namespace StanleyParableUltraModDeluxe
 {
@@ -23,7 +24,9 @@ namespace StanleyParableUltraModDeluxe
 
         private Rect windoPosition = new Rect(20, 20, 500, 320);
         private string TextArea = "";
-        
+
+        private float hSliderValue = 0.0f;
+
         public override void OnGUI()
         {
             if (menuShown == true)
@@ -48,7 +51,11 @@ namespace StanleyParableUltraModDeluxe
             GUI.Label(new Rect(20, 220, 250, 20), "O - Show hidden Achievemet menu");
             GUI.Label(new Rect(20, 240, 250, 20), "I - Toggle Menu");
             GUI.Label(new Rect(20, 260, 250, 20), "LeftAlt - Toggle Cursor Lock");
+            GUI.Label(new Rect(20, 280, 250, 20), "LeftBracket ( [ ) - Remove occlusion culling");
 
+            /*For Later Use 
+            hSliderValue = GUI.HorizontalSlider(new Rect(25, 25, 100, 30), hSliderValue, 0.0f, 10.0f);
+            */
 
             if (GUI.Button(new Rect(20, 70, 150, 20), "Load Selected Scene"))
             {
@@ -108,6 +115,11 @@ namespace StanleyParableUltraModDeluxe
                 ToggleMenu();
             }
 
+            if (Input.GetKeyDown(KeyCode.LeftBracket))
+            {
+                ToggleOcclusionCull();
+            }
+
             if (Input.GetKeyDown(KeyCode.LeftAlt))
             {
                 if (Cursor.visible == false)
@@ -133,6 +145,14 @@ namespace StanleyParableUltraModDeluxe
         public void ToggleMenu()
         {
             menuShown = !menuShown;
+        }
+
+        public void ToggleOcclusionCull()
+        {
+            GameObject Cameraobject = GameObject.Find("Main Camera");
+            Camera TheCameraComponent = Cameraobject.GetComponent<Camera>();
+            TheCameraComponent.useOcclusionCulling = false;
+            TheCameraComponent.farClipPlane = 10000;
         }
 
         public void AcheivementThing()
