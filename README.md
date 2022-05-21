@@ -18,6 +18,9 @@ Its been fun making this and i hope you have fun messing around with the game.
 ## TODO
 - Add Noclip
 - Make a Better Level Selector
+- Make new ui that does not use unitys script ui
+- Add a version checker to check if mod is updated
+- Redo the info that the scene info button gives
 - ~~Fix spelling mistakes ive made while working on this mod at 3am~~
 - ~~Add a Keybind to Lock/Unlock Cursor~~
 
@@ -28,4 +31,4 @@ Then, you will have to put the .dll file from [releases](https://github.com/mark
 ## Known Issues
 - Sometimes get stuck if you go to a level then go to main menu
 - Going to loading scene directly breaks game
-- Can lock curser sometimes causing issues
+- ~~Can lock curser sometimes causing issues~~
