@@ -36,5 +36,5 @@ using MelonLoader;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: MelonInfo(typeof(StanleyParableUltraModDeluxe.TheMod), "The Stanley Parable Ultra Mod Deluxe", "1.0.2", "markthomas007")]
+[assembly: MelonInfo(typeof(StanleyParableUltraModDeluxe.TheMod), "The Stanley Parable Ultra Mod Deluxe", "1.0.3", "markthomas007")]
 [assembly: MelonGame("Crows Crows Crows", "The Stanley Parable: Ultra Deluxe")]

@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VersionChecker.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="TheMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
