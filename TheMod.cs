@@ -22,7 +22,7 @@ namespace StanleyParableUltraModDeluxe
         public AchievementID achievementToUnlock1 = AchievementID.SpeedRun;
         public AchievementID achievementToUnlock2 = AchievementID.SettingsWorldChampion;
 
-        private Rect windoPosition = new Rect(20, 20, 500, 320);
+        private Rect windoPosition = new Rect(20, 20, 500, 420);
         private string TextArea = "";
 
         private float hSliderValue = 0.0f;
@@ -51,7 +51,9 @@ namespace StanleyParableUltraModDeluxe
             GUI.Label(new Rect(20, 220, 250, 20), "O - Show hidden Achievemet menu");
             GUI.Label(new Rect(20, 240, 250, 20), "I - Toggle Menu");
             GUI.Label(new Rect(20, 260, 250, 20), "LeftAlt - Toggle Cursor Lock");
-            GUI.Label(new Rect(20, 280, 250, 20), "LeftBracket ( [ ) - Remove occlusion culling");
+            GUI.Label(new Rect(20, 280, 450, 20), "LeftBracket ( [ ) - Remove occlusion culling");
+            GUI.Label(new Rect(20, 300, 450, 20), "RightBracket ( ] ) - Open all doors (Use door unlocker first)");
+            GUI.Label(new Rect(20, 320, 450, 20), "PageUp/Down - Increase/Decrease movement speed");
 
             /*For Later Use 
             hSliderValue = GUI.HorizontalSlider(new Rect(25, 25, 100, 30), hSliderValue, 0.0f, 10.0f);
@@ -92,14 +94,14 @@ namespace StanleyParableUltraModDeluxe
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
-                OpenAllDoors();
+                UnlockAllDoors();
             }
 
             if (Input.GetKeyDown(KeyCode.P))
             {
                 AcheivementThing();
             }
-
+            
             if (Input.GetKeyDown(KeyCode.L))
             {
                 JumpingThing();
@@ -118,6 +120,21 @@ namespace StanleyParableUltraModDeluxe
             if (Input.GetKeyDown(KeyCode.LeftBracket))
             {
                 ToggleOcclusionCull();
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightBracket))
+            {
+                OpenAllDoors();
+            }
+
+            if (Input.GetKeyDown(KeyCode.PageUp))
+            {
+                FasterWalkingSpeed();
+            }
+
+            if (Input.GetKeyDown(KeyCode.PageDown))
+            {
+                SlowerWalkingSpeed();
             }
 
             if (Input.GetKeyDown(KeyCode.LeftAlt))
@@ -147,6 +164,55 @@ namespace StanleyParableUltraModDeluxe
             menuShown = !menuShown;
         }
 
+        public void FasterWalkingSpeed()
+        {
+            GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+            float speed = 0;
+            foreach (GameObject go in allObjects)
+            {
+                if (go.GetComponent<StanleyController>() != null)
+                {
+                    StanleyController PlayerController = go.GetComponent<StanleyController>();
+                    speed = PlayerController.WalkingSpeedMultiplier;
+                    speed++;
+                    PlayerController.SetMovementSpeedMultiplier(speed);
+                }
+            }
+
+            LoggerInstance.Msg("Speed increased to" + speed);
+        }
+
+        public void SlowerWalkingSpeed()
+        {
+            GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+            float speed = 0;
+            foreach (GameObject go in allObjects)
+            {
+                if (go.GetComponent<StanleyController>() != null)
+                {
+                    StanleyController PlayerController = go.GetComponent<StanleyController>();
+                    speed = PlayerController.WalkingSpeedMultiplier;
+                    speed--;
+                    PlayerController.SetMovementSpeedMultiplier(speed);
+                }
+            }
+
+            LoggerInstance.Msg("Speed decreased to" + speed);
+        }
+        public void OpenAllDoors()
+        {
+            GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+            foreach (GameObject go in allObjects)
+            {
+                if (go.GetComponent<RotatingDoor>() != null)
+                {
+                    RotatingDoor Doorscript = go.GetComponent<RotatingDoor>();
+                    Doorscript.Input_Open();
+                }
+            }
+            LoggerInstance.Msg("Doors Opened");
+        }
+
         public void ToggleOcclusionCull()
         {
             GameObject Cameraobject = GameObject.Find("Main Camera");
@@ -163,6 +229,7 @@ namespace StanleyParableUltraModDeluxe
             LoggerInstance.Msg("Achievements Given");
         }
 
+
         public void JumpingThing()
         {
             foreach (BooleanConfigurable go in Resources.FindObjectsOfTypeAll(typeof(BooleanConfigurable)) as BooleanConfigurable[])
@@ -173,7 +240,7 @@ namespace StanleyParableUltraModDeluxe
                 }
             }
 
-            LoggerInstance.Msg("JumpingEnabled");
+            LoggerInstance.Msg("Jumping Enabled");
         }
 
         public void ShowAcheivementMenu()
@@ -187,10 +254,10 @@ namespace StanleyParableUltraModDeluxe
             }
 
             //StanleyController.Instance.UnfreezeMotionAndView();
-            LoggerInstance.Msg("JumpingEnabled");
+            LoggerInstance.Msg("Show Achievment Menu");
         }
 
-        public void OpenAllDoors()
+        public void UnlockAllDoors()
         {
             GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
             foreach (GameObject go in allObjects)
