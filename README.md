@@ -30,6 +30,7 @@ To install this mod, you will need to install [MelonLoader](https://melonwiki.xy
 Then, you will have to put the .dll file from [releases](https://github.com/markthomas007/Stanley-Parable-Ultra-Mod-Delux/releases/) into the `Mods` folder of your game directory
 
 ## Known Issues
+- Console spam for a Null refrence exception. Woring on a fix!
 - Sometimes get stuck if you go to a level then go to main menu
 - Going to loading scene directly breaks game
 - ~~Can lock curser sometimes causing issues~~
