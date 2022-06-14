@@ -16,7 +16,6 @@ Its been fun making this and i hope you have fun messing around with the game.
 - Lock/Unlock Cursor
 
 ## TODO
-- Add Noclip
 - Make a Better Level Selector
 - Make new ui that does not use unitys script ui
 - Add a version checker to check if mod is updated

@@ -27,6 +27,10 @@ namespace StanleyParableUltraModDeluxe
 
         private float hSliderValue = 0.0f;
 
+        public int noclipUse;
+        public bool tempBucket;
+
+
         public override void OnGUI()
         {
             if (menuShown == true)
@@ -54,6 +58,7 @@ namespace StanleyParableUltraModDeluxe
             GUI.Label(new Rect(20, 280, 450, 20), "LeftBracket ( [ ) - Remove occlusion culling");
             GUI.Label(new Rect(20, 300, 450, 20), "RightBracket ( ] ) - Open all doors (Use door unlocker first)");
             GUI.Label(new Rect(20, 320, 450, 20), "PageUp/Down - Increase/Decrease movement speed");
+            GUI.Label(new Rect(20, 340, 450, 20), "N - Noclip");
 
             /*For Later Use 
             hSliderValue = GUI.HorizontalSlider(new Rect(25, 25, 100, 30), hSliderValue, 0.0f, 10.0f);
@@ -92,6 +97,14 @@ namespace StanleyParableUltraModDeluxe
 
         public override void OnUpdate()
         {
+            GameObject obj2 = GameObject.FindGameObjectWithTag("Player");
+            GameObject obj3 = GameObject.Find("Main Camera");
+            bool HASBUCKET = BucketController.HASBUCKET;
+            StanleyController controller = UnityEngine.Object.FindObjectOfType<StanleyController>();
+            bool motionFrozen = controller.motionFrozen;
+            Rigidbody component = obj2.GetComponent<Rigidbody>();
+            float num = 0.03f;
+
             if (Input.GetKeyDown(KeyCode.T))
             {
                 UnlockAllDoors();
@@ -157,6 +170,66 @@ namespace StanleyParableUltraModDeluxe
                 LoggerInstance.Msg("Scene Count: " + sceneCount);
                 //LoggerInstance.Msg("Scene was loaded. Name: " + S + " int: " + buildIndex);
             }
+
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                int noclipUse = this.noclipUse;
+                if (noclipUse == 0)
+                {
+                    this.noclipUse = 1;
+                    controller.motionFrozen = true;
+                    if (HASBUCKET)
+                    {
+                        this.tempBucket = true;
+                        HASBUCKET = false;
+                    }
+                    component.useGravity = false;
+                }
+                else if (noclipUse != 1)
+                {
+                    MelonLogger.Msg("ERROR");
+                }
+                else
+                {
+                    this.noclipUse = 0;
+                    controller.motionFrozen = false;
+                    if (this.tempBucket)
+                    {
+                        this.tempBucket = false;
+                        HASBUCKET = true;
+                    }
+                    component.useGravity = true;
+                }
+            }
+            num = !Input.GetKey(KeyCode.LeftShift) ? 0.03f : 0.05f;
+            if (this.noclipUse == 1)
+            {
+                if (Input.GetKey(KeyCode.W))
+                {
+                    obj2.transform.Translate(Vector3.forward * num, obj3.transform);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    obj2.transform.Translate(Vector3.back * num, obj3.transform);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    obj2.transform.Translate(Vector3.left * num, obj3.transform);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    obj2.transform.Translate(Vector3.right * num, obj3.transform);
+                }
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    obj2.transform.Translate(Vector3.up * num);
+                }
+                if (Input.GetKey(KeyCode.LeftControl))
+                {
+                    obj2.transform.Translate(Vector3.down * num);
+                }
+            }
+
         }
 
         public void ToggleMenu()
