@@ -14,6 +14,8 @@ Its been fun making this and i hope you have fun messing around with the game.
 - Enable Jumping
 - Scene switcher to allow you to go to different parts of the game
 - Lock/Unlock Cursor
+- Noclip (Thanks Felixbucket!)
+- Speed Increaser/Decreaser
 
 ## TODO
 - Make a Better Level Selector
@@ -31,3 +33,7 @@ Then, you will have to put the .dll file from [releases](https://github.com/mark
 - Sometimes get stuck if you go to a level then go to main menu
 - Going to loading scene directly breaks game
 - ~~Can lock curser sometimes causing issues~~
+
+## Credits
+- Markthomas007
+- FelixBucket (Noclip)
