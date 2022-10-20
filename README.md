@@ -26,7 +26,7 @@ Its been fun making this and i hope you have fun messing around with the game.
 - ~~Add a Keybind to Lock/Unlock Cursor~~
 
 ## Installation
-To install this mod, you will need to install [MelonLoader](https://melonwiki.xyz/) (website link, see Getting Started).  
+To install this mod, you will need to install [MelonLoader](https://melonwiki.xyz/) (website link, see Getting Started. Automated install recomended).  
 Then, you will have to put the .dll file from [releases](https://github.com/markthomas007/Stanley-Parable-Ultra-Mod-Delux/releases/) into the `Mods` folder of your game directory
 
 ## Known Issues
